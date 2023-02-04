@@ -2,6 +2,8 @@
 
 <https://typer.tiangolo.com/tutorial/package/>
 
+<https://pypi.org/project/ray-chunkit-chung-gum-gum-pistol/>
+
 ## Step 1 Init project and dependencies
 
 ```bash
