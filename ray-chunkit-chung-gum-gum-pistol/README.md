@@ -4,6 +4,8 @@
 
 <https://pypi.org/project/ray-chunkit-chung-gum-gum-pistol/>
 
+![image](https://user-images.githubusercontent.com/26511618/216767867-50a63a7f-bb39-4020-9227-e6672c454c9a.png)
+
 ## Step 1 Init project and dependencies
 
 ```bash
