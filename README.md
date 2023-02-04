@@ -32,3 +32,11 @@ root/
 ├── README.md
 └── requirements.txt
 ```
+
+## Reference
+
+<https://realpython.com/python-typer-cli/>
+
+<https://typer.tiangolo.com/tutorial/first-steps/>
+
+<https://typer.tiangolo.com/tutorial/package/>
