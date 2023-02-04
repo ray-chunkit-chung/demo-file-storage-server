@@ -22,7 +22,7 @@ gum shoot
 
 That's it!
 
-## How gum-gum-pistol was made
+## Use typer to create gum-gum-pistol
 
 <https://typer.tiangolo.com/tutorial/package/>
 
