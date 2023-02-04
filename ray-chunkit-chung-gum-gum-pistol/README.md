@@ -44,13 +44,13 @@ Define app path
 gum = "ray_chunkit_chung_gum_gum_pistol.main:app"
 ```
 
-Install local
+Install local for test
 
 ```bash
 poetry install
 ```
 
-Try app local
+Test app local
 
 ```bash
 gum --help
