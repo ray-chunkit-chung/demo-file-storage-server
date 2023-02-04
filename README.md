@@ -13,3 +13,22 @@ To create a simple file storage server with a command line interface, you could 
 5. Test the file storage server thoroughly to ensure that it works as expected and is secure.
 
 Some popular programming languages for creating file storage servers include Python, Java, and Ruby. The choice of language and libraries will depend on your specific requirements and constraints.
+
+```md
+root/
+│
+├── file-server/
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── cli.py
+│   ├── config.py
+│   ├── database.py
+│   └── app.py
+│
+├── file-server-tests/
+│   ├── __init__.py
+│   └── test_app.py
+│
+├── README.md
+└── requirements.txt
+```
