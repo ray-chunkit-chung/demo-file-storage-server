@@ -2,3 +2,5 @@ poetry
 typer
 pytest
 tomli
+fastapi
+uvicorn

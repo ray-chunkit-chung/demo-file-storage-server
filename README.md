@@ -122,6 +122,12 @@ Step 3 Unit test
 python -m pytest tests/
 ```
 
+Step 4 Launch file server backend
+
+```bash
+uvicorn backend:app --reload
+```
+
 ## Reference
 
 <https://realpython.com/python-typer-cli/>
