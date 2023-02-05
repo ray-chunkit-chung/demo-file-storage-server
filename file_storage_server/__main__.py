@@ -1,2 +1,2 @@
-from .main import app
-app(prog_name="fs-store")
+from .main import app, APP_NAME
+app(prog_name=APP_NAME)

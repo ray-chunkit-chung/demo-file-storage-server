@@ -74,6 +74,19 @@ root/
 └── requirements.txt
 ```
 
+Step 1 Install fs-store
+
+```bash
+poetry install 
+fs-store --version
+```
+
+Step 2 Unit test
+
+```bash
+python -m pytest tests/
+```
+
 ## Reference
 
 <https://realpython.com/python-typer-cli/>

@@ -1,8 +1,3 @@
-# """Top-level package for RP To-Do."""
-# # rptodo/__init__.py
-
-# __app_name__ = "file-server"
-# __version__ = "0.1.0"
 
 # (
 #     SUCCESS,
