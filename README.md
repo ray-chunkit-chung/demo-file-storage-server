@@ -69,6 +69,7 @@ root/
 │   ├── __init__.py
 │   └── test_main.py
 │
+├── pyproject.toml
 ├── README.md
 └── requirements.txt
 ```
