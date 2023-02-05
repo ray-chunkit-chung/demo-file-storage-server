@@ -80,15 +80,22 @@ Step 2 Install python 3.11 on debian 11
 Install python 3.11 for latest typing convention
 
 ```bash
+# download
 cd /tmp/
 wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz
 tar -xzvf Python-3.11.1.tgz
 cd Python-3.11.1/
+
+# install build tools
 sudo apt update
 sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
+
+# configure, make and make install. Python3.11 will be in /usr/local/bin/python3.11
 ./configure --enable-optimizations
 make -j `nproc`
 sudo make altinstall
+
+# make the default version as Python 3.11.1 
 # sudo ln -s /usr/local/bin/python
 # sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python
 ```

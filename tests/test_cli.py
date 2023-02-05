@@ -1,4 +1,4 @@
-from file_storage_server.main import app, APP_NAME, VERSION
+from file_storage_server.cli import app, APP_NAME, VERSION
 
 from typer.testing import CliRunner
 
