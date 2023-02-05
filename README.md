@@ -1,5 +1,9 @@
 # File storage server
 
+## Usage
+
+## Idea
+
 To create a simple file storage server with a command line interface, you could follow these steps:
 
 1. Choose a programming language and select the appropriate libraries for file management and command line interface.
@@ -40,3 +44,11 @@ root/
 <https://typer.tiangolo.com/tutorial/first-steps/>
 
 <https://typer.tiangolo.com/tutorial/package/>
+
+<https://dev.to/meseta/explaining-typer-and-fastapi-dependency-injection-and-rolling-your-own-in-python-2bf2>
+
+<https://pypi.org/project/tornado-file-server/>
+
+<https://github.com/GeekRicardo/image_server>
+
+<https://github.com/GeekRicardo/file-download-server>
