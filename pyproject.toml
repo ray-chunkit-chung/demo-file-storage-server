@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "file-storage-server"
+version = "0.1.0"
+description = ""
+authors = ["ray-chunkit-chung <ray.chunkit.chung@gmail.com>"]
+readme = "README.md"
+packages = [{include = "file_storage_server"}]
+
+[tool.poetry.scripts]
+fs-store = "file_storage_server.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.7.0"}
+pytest = {extras = ["all"], version = "^7.2.1"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

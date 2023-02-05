@@ -2,7 +2,41 @@
 
 ## Usage
 
-## Idea
+There are three functions for this file storage server:
+
+1. Upload a file ex. POST /files/<name>, Content-Type: multipart/form-data
+2. Delete a file ex. DELETE /files/<name>
+3. List uploaded files (if a file is uploaded then deleted it should not be listed) ex. GET /files may return a list of files: [file1.txt, file2.txt, ..]
+
+```bash
+fs-store upload-file <file>
+fs-store delete-file <file>
+fs-store list-files
+```
+
+## Architecture principles
+
+1. Correctness of the code
+2. Ease of use
+3. OSS project toolings
+4. Easy to distribute to users
+
+## What to return back to us
+
+The project folder and all its contents
+2. Please provide a complete README file that includes following contents:
+a. What is your idea or Ingenuity in design
+b. Instructions on how to build and run (distribute) your code
+c. framework and tool / kit information if you use
+d. Operating system and environment setting information if necessary
+3. Make sure your code is well covered by test code to illustrate its robustness.
+4. Please zip or tar everything in a directory named yourfirst.lastname/ and return
+via email
+5. In your email response please let us know roughly how many hours you spent on
+this exercise (we will not grade you this on this answer -- it is helpful for us to
+normalize the difficulty of challenges)
+
+## Thought process
 
 To create a simple file storage server with a command line interface, you could follow these steps:
 
@@ -18,6 +52,8 @@ To create a simple file storage server with a command line interface, you could 
 
 Some popular programming languages for creating file storage servers include Python, Java, and Ruby. The choice of language and libraries will depend on your specific requirements and constraints.
 
+## How to create a file storage server
+
 ```md
 root/
 │
@@ -27,11 +63,11 @@ root/
 │   ├── cli.py
 │   ├── config.py
 │   ├── database.py
-│   └── app.py
+│   └── main.py
 │
-├── file-server-tests/
+├── tests/
 │   ├── __init__.py
-│   └── test_app.py
+│   └── test_main.py
 │
 ├── README.md
 └── requirements.txt
