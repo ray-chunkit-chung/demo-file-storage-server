@@ -11,12 +11,14 @@ from fastapi.encoders import jsonable_encoder
 # Load typer app and poetry project attributes
 BASE_DIR = os.path.join(os.path.dirname(__file__))
 load_dotenv(os.path.join(BASE_DIR, '..', '.env'))
+BACKEND_URL = os.environ['BACKEND_URL']
+
 TOML_PATH = os.path.join(BASE_DIR, '..', 'pyproject.toml')
 with open(TOML_PATH, 'rb') as fp:
     poetry_attr = tomli.load(fp)
 APP_NAME = poetry_attr['tool']['poetry']['name']
 VERSION = poetry_attr['tool']['poetry']['version']
-BACKEND_URL = os.environ['BACKEND_URL']
+
 
 app = typer.Typer()
 

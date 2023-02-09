@@ -3,10 +3,14 @@ import shutil
 import uvicorn
 
 from glob import glob
+from dotenv import load_dotenv
 from fastapi import FastAPI, File, UploadFile
 
 # Common path for the backend app
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.join(os.path.dirname(__file__))
+load_dotenv(os.path.join(BASE_DIR, '..', '.env'))
+BACKEND_URL = os.environ['BACKEND_URL']
+
 STORAGE_DIR = os.path.join(BASE_DIR, 'local')
 if not os.path.exists(STORAGE_DIR):
     os.mkdir(STORAGE_DIR)
@@ -84,4 +88,6 @@ async def get_files():
 
 
 if __name__ == '__main__':
+
+    # Dev only
     uvicorn.run('backend:app', port=8000, reload=True)
