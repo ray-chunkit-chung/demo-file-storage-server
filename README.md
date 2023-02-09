@@ -91,17 +91,58 @@ root/
 └── requirements.txt
 ```
 
-Step 1 Install fs-store
+Step 2 Install python 3.11 on debian 11
+<https://aruljohn.com/blog/install-python-debian/>
+
+Install python 3.11 for latest typing convention
+
+```bash
+# download
+cd /tmp/
+wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz
+tar -xzvf Python-3.11.1.tgz
+cd Python-3.11.1/
+
+# install build tools
+sudo apt update
+sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
+
+# configure, make and make install. Python3.11 will be in /usr/local/bin/python3.11
+./configure --enable-optimizations
+make -j `nproc`
+sudo make altinstall
+
+# make the default version as Python 3.11.1 
+# sudo ln -s /usr/local/bin/python
+# sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+```
+
+Create venv for dev
+
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install --upgrade -r requirements.txt
+```
+
+Step 2 Install fs-store
 
 ```bash
 poetry install 
 fs-store --version
 ```
 
-Step 2 Unit test
+Step 3 Unit test
 
 ```bash
 python -m pytest tests/
+```
+
+Step 4 Launch file server backend
+
+```bash
+uvicorn backend:app --reload
 ```
 
 ## Reference
@@ -119,3 +160,11 @@ python -m pytest tests/
 <https://github.com/GeekRicardo/image_server>
 
 <https://github.com/GeekRicardo/file-download-server>
+
+## Docker dev env trouble shoot
+
+If git folder fatal,
+
+```bash
+git config --global --add safe.directory /com.docker.devenvironments.code
+```
