@@ -1,6 +1,8 @@
 import os
 import tomli
 import typer
+import requests
+
 from typing import Optional
 
 
@@ -9,10 +11,9 @@ DIRNAME = os.path.join(os.path.dirname(__file__))
 TOML_PATH = os.path.join(DIRNAME, '..', 'pyproject.toml')
 with open(TOML_PATH, 'rb') as fp:
     poetry_attr = tomli.load(fp)
-# COMMAND = next(iter(poetry_attr['tool']['poetry']['scripts']))
 APP_NAME = poetry_attr['tool']['poetry']['name']
 VERSION = poetry_attr['tool']['poetry']['version']
-
+BACKEND_URL = 'http://localhost:8000'
 
 app = typer.Typer()
 
@@ -40,19 +41,41 @@ def main(
 
 
 @app.command()
-def upload_file():
-    """
-    upload_file
-    """
-    typer.echo('upload_file')
+def say_hello():
+    """ Minimal get to return 'Hello backend' """
+    headers = {'accept': 'application/json'}
+    response = requests.get(BACKEND_URL, headers=headers)
+    
+    # stdout
+    typer.echo(response.status_code)
+    typer.echo(response.content)
 
 
 @app.command()
-def delete_file():
+def upload_file(filename: str):
+    """
+    upload_file
+    """
+    try:
+        headers = {'accept': 'application/json'}
+        files = {'file': open(filename, 'rb')}
+        response = requests.post(
+            f'{BACKEND_URL}/files/', headers=headers, files=files)
+        
+        # stdout
+        typer.echo(response.status_code)
+        typer.echo(response.content)
+
+    except FileNotFoundError:
+        typer.echo({"message": "File not found"})
+
+
+@app.command()
+def delete_file(filename: str):
     """
     delete_file
     """
-    typer.echo('delete_file')
+    typer.echo(f'delete_file {filename}')
 
 
 @app.command()
@@ -60,5 +83,10 @@ def list_files():
     """
     list_files
     """
-    typer.echo('list_files')
+    headers = {'accept': 'application/json'}
+    response = requests.get(f'{BACKEND_URL}/files', headers=headers)
+    
+    # stdout
+    typer.echo(response.status_code)
+    typer.echo(response.content)
 
