@@ -4,16 +4,18 @@ import typer
 import requests
 
 from typing import Optional
+from dotenv import load_dotenv
 
 
-# poetry project attributes
-DIRNAME = os.path.join(os.path.dirname(__file__))
-TOML_PATH = os.path.join(DIRNAME, '..', 'pyproject.toml')
+# Load typer app and poetry project attributes
+BASE_DIR = os.path.join(os.path.dirname(__file__))
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+TOML_PATH = os.path.join(BASE_DIR, '..', 'pyproject.toml')
 with open(TOML_PATH, 'rb') as fp:
     poetry_attr = tomli.load(fp)
 APP_NAME = poetry_attr['tool']['poetry']['name']
 VERSION = poetry_attr['tool']['poetry']['version']
-BACKEND_URL = 'http://localhost:8000'
+BACKEND_URL = os.environ['BACKEND_URL_DEV']
 
 app = typer.Typer()
 
@@ -43,7 +45,7 @@ def main(
 @app.command()
 def hello():
     """
-    Minimal get to test the server alive
+    Minimal get to test the server availability
     """
     headers = {'accept': 'application/json'}
     response = requests.get(BACKEND_URL, headers=headers)

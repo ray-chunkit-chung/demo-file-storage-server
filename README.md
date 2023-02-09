@@ -1,46 +1,41 @@
 # File storage server
 
-## Install fs-store
+## Install fs-store file storage server
 
 Prerequsite: Python 3.11.1 installed in .venv
 
-Folder structure
-
-```md
-```
-
-Install dependencies
-
 ```bash
-#.\.venv\Scripts\activate  # windows
+# Install dependencies
 ./.venv/bin/activate   # linux
 pip install --upgrade -r requirements.txt
-```
 
-Install fs-store cli (See pyproject.toml & file_storage_server/cli.py)
-
-```bash
+# Install fs-store cli (See pyproject.toml & file_storage_server/cli.py)
 poetry install
-```
 
-Spin up restful backend for local test (See localhost:8000/docs)
-
-```bash
+# Spin up restful backend for local test (See localhost:8000/docs)
+source .env
 python file_storage_server/backend.py
 ```
 
-## Usage
+## Usage of fs-store file storage server
 
-There are three functions for this file storage server:
-
-1. Upload a file ex. POST /files/<name>, Content-Type: multipart/form-data
-2. Delete a file ex. DELETE /files/<name>
-3. List uploaded files (if a file is uploaded then deleted it should not be listed) ex. GET /files may return a list of files: [file1.txt, file2.txt, ..]
+There are three commands for this file storage server:
 
 ```bash
-fs-store upload-file <file>
-fs-store delete-file <file>
+fs-store upload-file <filename>
+fs-store delete-file <filename>
 fs-store list-files
+```
+
+They are supported by the corresponding backend services:
+
+1. Upload a file ex. POST /files/ with curl -F 'file=@xxxx.json;type=application/json'
+2. Delete a file ex. DELETE /files/{filename} where {filename} is a path parameter
+3. List uploaded files (if a file is uploaded then deleted it should not be listed) ex. GET /files may return a list of files: [file1.txt, file2.txt, ..]
+
+## Folder structure
+
+```md
 ```
 
 ## Architecture principles
