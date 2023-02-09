@@ -1,11 +1,12 @@
 import os
+import json
 import tomli
 import typer
 import requests
 
 from typing import Optional
 from dotenv import load_dotenv
-
+from fastapi.encoders import jsonable_encoder
 
 # Load typer app and poetry project attributes
 BASE_DIR = os.path.join(os.path.dirname(__file__))
@@ -51,14 +52,13 @@ def hello():
     response = requests.get(BACKEND_URL, headers=headers)
 
     # stdout
-    typer.echo(response.status_code)
     typer.echo(response.content)
 
 
 @app.command()
 def upload_file(filename: str):
     """Upload_file
-    
+
     Args:
         filename (str): fs-store upload-file <filename>
 
@@ -67,7 +67,7 @@ def upload_file(filename: str):
 
     Raises:
         Exception: If anything unexpected happens
-    
+
     """
     try:
         headers = {'accept': 'application/json'}
@@ -76,7 +76,6 @@ def upload_file(filename: str):
             f'{BACKEND_URL}/files/', headers=headers, files=files)
 
         # stdout
-        typer.echo(response.status_code)
         typer.echo(response.content)
 
     except FileNotFoundError:
@@ -93,7 +92,6 @@ def delete_file(filename: str):
         f'{BACKEND_URL}/files/{filename}', headers=headers)
 
     # stdout
-    typer.echo(response.status_code)
     typer.echo(response.content)
 
 
@@ -106,5 +104,4 @@ def list_files():
     response = requests.get(f'{BACKEND_URL}/files', headers=headers)
 
     # stdout
-    typer.echo(response.status_code)
     typer.echo(response.content)

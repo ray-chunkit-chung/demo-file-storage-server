@@ -2,6 +2,7 @@ import os
 import shutil
 
 from typer.testing import CliRunner
+from fastapi.encoders import jsonable_encoder
 from file_storage_server.cli import app, APP_NAME, VERSION
 
 # Common path for the cli app tests
