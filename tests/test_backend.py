@@ -18,23 +18,16 @@ def test_backend_upload_file_happy():
     """
     pass
 
-    # # Initiate the test materials
-    # filename = os.path.join(TEST_DIR, 'this_file_exists.txt')
-    # with open(filename, 'w') as f:
-    #     pass
-
-    # headers = {'accept': 'application/json'}
-    # files = {'file': open(filename, 'rb')}
-    # response = requests.post(
-    #     f'{BACKEND_URL}/files/', headers=headers, files=files)
-
-    # assert response.status_code == 200
-    # assert 'uploaded successfully' in response.content
-
 
 def test_backend_delete_file_happy():
     pass
 
 
 def test_backend_list_files_happy():
-    pass
+    """
+    list_files
+    """
+    headers = {'accept': 'application/json'}
+    response = requests.get(f'{BACKEND_URL}/files', headers=headers)
+
+    assert response.status_code == 200
