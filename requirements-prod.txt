@@ -1,0 +1,6 @@
+typer
+tomli
+fastapi
+uvicorn
+python-multipart
+python-dotenv
