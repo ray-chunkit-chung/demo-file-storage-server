@@ -45,7 +45,7 @@ def say_hello():
     """ Minimal get to return 'Hello backend' """
     headers = {'accept': 'application/json'}
     response = requests.get(BACKEND_URL, headers=headers)
-    
+
     # stdout
     typer.echo(response.status_code)
     typer.echo(response.content)
@@ -61,7 +61,7 @@ def upload_file(filename: str):
         files = {'file': open(filename, 'rb')}
         response = requests.post(
             f'{BACKEND_URL}/files/', headers=headers, files=files)
-        
+
         # stdout
         typer.echo(response.status_code)
         typer.echo(response.content)
@@ -75,7 +75,13 @@ def delete_file(filename: str):
     """
     delete_file
     """
-    typer.echo(f'delete_file {filename}')
+    headers = {'accept': 'application/json'}
+    response = requests.delete(
+        f'{BACKEND_URL}/files/{filename}', headers=headers)
+
+    # stdout
+    typer.echo(response.status_code)
+    typer.echo(response.content)
 
 
 @app.command()
@@ -85,8 +91,7 @@ def list_files():
     """
     headers = {'accept': 'application/json'}
     response = requests.get(f'{BACKEND_URL}/files', headers=headers)
-    
+
     # stdout
     typer.echo(response.status_code)
     typer.echo(response.content)
-

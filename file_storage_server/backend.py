@@ -31,10 +31,9 @@ async def upload_file(file: UploadFile | None = None):
     return {'message': 'File not found'}
 
 
-@app.delete('/files/')
-async def delete_file(file: UploadFile | None = None):
-    if file:
-        filename = file.filename
+@app.delete('/files/{filename}')
+async def delete_file(filename: str | None = None):
+    if filename:
         file_path = os.path.join(UPLOAD_FOLDER, filename)
         if os.path.exists(file_path):
             os.remove(file_path)
