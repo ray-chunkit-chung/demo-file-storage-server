@@ -1,21 +1,24 @@
-from fastapi import FastAPI, File, UploadFile
-from glob import glob
-
+import os
+import shutil
 import hashlib
 import uvicorn
-import shutil
-import os
+
+from glob import glob
+from fastapi import FastAPI, File, UploadFile
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join(BASE_DIR, 'local')
-if not os.path.exists(UPLOAD_FOLDER):
-    os.mkdir(UPLOAD_FOLDER)
+UPLOAD_DIR = os.path.join(BASE_DIR, 'local')
+if not os.path.exists(UPLOAD_DIR):
+    os.mkdir(UPLOAD_DIR)
 
 app = FastAPI()
 
 
 @app.get('/')
-async def root():
+async def hello():
+    """
+    Minimal get to test the server alive
+    """
     return {'message': 'Hello backend'}
 
 
@@ -24,7 +27,7 @@ async def upload_file(file: UploadFile | None = None):
     if file:
         filename = file.filename
         fileobj = file.file
-        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        file_path = os.path.join(UPLOAD_DIR, filename)
         with open(file_path, 'wb') as f:
             shutil.copyfileobj(file.file, f)
         return {'filename': filename, 'message': 'file uploaded successfully'}
@@ -34,7 +37,7 @@ async def upload_file(file: UploadFile | None = None):
 @app.delete('/files/{filename}')
 async def delete_file(filename: str | None = None):
     if filename:
-        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        file_path = os.path.join(UPLOAD_DIR, filename)
         if os.path.exists(file_path):
             os.remove(file_path)
             return {'message': 'File deleted successfully'}
@@ -43,8 +46,8 @@ async def delete_file(filename: str | None = None):
 
 @app.get('/files')
 async def get_files():
-    abs_paths = glob(os.path.join(UPLOAD_FOLDER, '*'))
-    rel_paths = [os.path.relpath(p, UPLOAD_FOLDER) for p in abs_paths]
+    abs_paths = glob(os.path.join(UPLOAD_DIR, '*'))
+    rel_paths = [os.path.relpath(p, UPLOAD_DIR) for p in abs_paths]
     return rel_paths
 
 

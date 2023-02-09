@@ -41,8 +41,10 @@ def main(
 
 
 @app.command()
-def say_hello():
-    """ Minimal get to return 'Hello backend' """
+def hello():
+    """
+    Minimal get to test the server alive
+    """
     headers = {'accept': 'application/json'}
     response = requests.get(BACKEND_URL, headers=headers)
 
