@@ -4,17 +4,29 @@
 
 Prerequsite: Python 3.11.1 installed in .venv
 
+Folder structure
+
+```md
+```
+
 Install dependencies
 
 ```bash
-.\.venv\Scripts\activate
+#.\.venv\Scripts\activate  # windows
+./.venv/bin/activate   # linux
 pip install --upgrade -r requirements.txt
 ```
 
-Install fs-store cli (see pyproject.toml)
+Install fs-store cli (See pyproject.toml & file_storage_server/cli.py)
 
 ```bash
 poetry install
+```
+
+Spin up restful backend for local test (See localhost:8000/docs)
+
+```bash
+python file_storage_server/backend.py
 ```
 
 ## Usage
