@@ -5,3 +5,4 @@ tomli
 fastapi
 uvicorn
 python-multipart
+sphinx
