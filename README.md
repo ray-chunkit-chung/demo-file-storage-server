@@ -1,6 +1,8 @@
 # File storage server
 
-## Install fs-store file storage server
+## how to build and run (distribute) your code
+
+### Install fs-store file storage server
 
 Prerequsite: Python 3.11.1 installed in .venv
 
@@ -17,7 +19,7 @@ source .env
 python file_storage_server/backend.py
 ```
 
-## Usage of fs-store file storage server
+### Usage of fs-store file storage server
 
 There are three commands for this file storage server:
 
@@ -33,13 +35,13 @@ They are supported by the corresponding backend services:
 2. Delete a file ex. DELETE /files/{filename} where {filename} is a path parameter
 3. List uploaded files (if a file is uploaded then deleted it should not be listed) ex. GET /files may return a list of files: [file1.txt, file2.txt, ..]
 
-## Architecture principles
+## Design idea
 
 1. Minimal: easy to use by end users
 2. Easy to distribute, maintain, config by ops team members
 3. Easy to add/update features by dev team members
 
-### Tech stack
+### Framework and tool / kit information
 
 - fastapi (backend)
 - typer (cli)
@@ -57,12 +59,12 @@ The tests contain both happy and unhappy path, e.g., when succesful file upload/
 
 ## What to return back to us
 
-The project folder and all its contents
+1. The project folder and all its contents
 2. Please provide a complete README file that includes following contents:
-a. What is your idea or Ingenuity in design
-b. Instructions on how to build and run (distribute) your code
-c. framework and tool / kit information if you use
-d. Operating system and environment setting information if necessary
+  a. What is your idea or Ingenuity in design
+  b. Instructions on how to build and run (distribute) your code
+  c. framework and tool / kit information if you use
+  d. Operating system and environment setting information if necessary
 3. Make sure your code is well covered by test code to illustrate its robustness.
 4. Please zip or tar everything in a directory named yourfirst.lastname/ and return
 via email
