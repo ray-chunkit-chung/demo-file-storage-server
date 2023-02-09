@@ -180,6 +180,10 @@ uvicorn backend:app --reload
 
 <https://github.com/GeekRicardo/file-download-server>
 
+<https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli>
+
+<https://docker-fastapi-projects.readthedocs.io/en/latest/nginx.html>
+
 ### Docker dev env trouble shoot
 
 If git folder fatal,
