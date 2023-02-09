@@ -33,17 +33,27 @@ They are supported by the corresponding backend services:
 2. Delete a file ex. DELETE /files/{filename} where {filename} is a path parameter
 3. List uploaded files (if a file is uploaded then deleted it should not be listed) ex. GET /files may return a list of files: [file1.txt, file2.txt, ..]
 
-## Folder structure
-
-```md
-```
-
 ## Architecture principles
 
-1. Correctness of the code
-2. Ease of use
-3. OSS project toolings
-4. Easy to distribute to users
+1. Minimal: easy to use by end users
+2. Easy to distribute, maintain, config by ops team members
+3. Easy to add/update features by dev team members
+
+### Tech stack
+
+- fastapi (backend)
+- typer (cli)
+- poetry (packaging)
+- docker (deploy)
+
+### Test cases
+
+Two sets of tests are created:
+
+- command line app (tests/test_cli.py)
+- backend RESTapi endpoints (tests/test_backend.py)
+
+The tests contain both happy and unhappy path, e.g., when succesful file upload/delete, or when files are not found.
 
 ## What to return back to us
 
@@ -76,7 +86,9 @@ To create a simple file storage server with a command line interface, you could 
 
 Some popular programming languages for creating file storage servers include Python, Java, and Ruby. The choice of language and libraries will depend on your specific requirements and constraints.
 
-## How to create a file storage server
+## Step-by-step doc of creating this file storage server
+
+App folder structure
 
 ```md
 root/
@@ -120,8 +132,8 @@ make -j `nproc`
 sudo make altinstall
 
 # make the default version as Python 3.11.1 
-# sudo ln -s /usr/local/bin/python
-# sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python
 ```
 
 Create venv for dev
@@ -152,7 +164,7 @@ Step 4 Launch file server backend
 uvicorn backend:app --reload
 ```
 
-## Reference
+### Reference
 
 <https://realpython.com/python-typer-cli/>
 
@@ -168,7 +180,7 @@ uvicorn backend:app --reload
 
 <https://github.com/GeekRicardo/file-download-server>
 
-## Docker dev env trouble shoot
+### Docker dev env trouble shoot
 
 If git folder fatal,
 
