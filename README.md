@@ -132,8 +132,11 @@ make -j `nproc`
 sudo make altinstall
 
 # make the default version as Python 3.11.1 
-sudo ln -s /usr/local/bin/python
-sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+# sudo ln -s /usr/local/bin/python
+# sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+
+# make the default version as Python 3.9.2 
+sudo ln -s /usr/local/bin/python3.9 /usr/local/bin/python
 ```
 
 Create venv for dev
@@ -141,6 +144,13 @@ Create venv for dev
 ```bash
 python3.11 -m venv .venv
 source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install --upgrade -r requirements.txt
+```
+
+```bash
+apt-get install python3-venv
+python3.9 -m venv .venv
 python -m pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 ```

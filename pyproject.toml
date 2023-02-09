@@ -10,7 +10,7 @@ packages = [{include = "file_storage_server"}]
 fs-store = "file_storage_server.cli:app"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 typer = {extras = ["all"], version = "^0.7.0"}
 pytest = {extras = ["all"], version = "^7.2.1"}
 
