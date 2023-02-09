@@ -2,3 +2,6 @@ poetry
 typer
 pytest
 tomli
+fastapi
+uvicorn
+python-multipart
