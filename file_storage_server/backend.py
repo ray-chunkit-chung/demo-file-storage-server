@@ -5,6 +5,7 @@ import uvicorn
 from glob import glob
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, UploadFile
+from typing import Union
 
 # Common path for the backend app
 BASE_DIR = os.path.join(os.path.dirname(__file__))
@@ -27,7 +28,7 @@ async def hello():
 
 
 @app.post('/files/')
-async def upload_file(file: UploadFile | None = None):
+async def upload_file(file: Union[UploadFile, None] = None):
     """
     Upload a file to storage directory
 
@@ -51,7 +52,7 @@ async def upload_file(file: UploadFile | None = None):
 
 
 @app.delete('/files/{filename}')
-async def delete_file(filename: str | None = None):
+async def delete_file(filename: Union[str, None] = None):
     """
     Delete a file from storage directory
 

@@ -178,6 +178,8 @@ uvicorn backend:app --reload
 
 <https://realpython.com/python-typer-cli/>
 
+<https://fastapi.tiangolo.com/tutorial/first-steps/>
+
 <https://typer.tiangolo.com/tutorial/first-steps/>
 
 <https://typer.tiangolo.com/tutorial/package/>
