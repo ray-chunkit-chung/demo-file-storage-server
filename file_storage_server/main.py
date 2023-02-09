@@ -14,13 +14,16 @@ APP_NAME = poetry_attr['tool']['poetry']['name']
 VERSION = poetry_attr['tool']['poetry']['version']
 
 
-app = typer.Typer()
-
-
 def _version(value: bool) -> None:
+    """
+    private functions: return version in main callback
+    """
     if value:
         typer.echo(f'{APP_NAME} v{VERSION}')
         raise typer.Exit()
+
+
+app = typer.Typer()
 
 
 @app.callback()
@@ -61,4 +64,3 @@ def list_files():
     list_files
     """
     typer.echo('list_files')
-

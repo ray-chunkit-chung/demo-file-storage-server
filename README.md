@@ -1,5 +1,22 @@
 # File storage server
 
+## Install fs-store
+
+Prerequsite: Python 3.11.1 installed in .venv
+
+Install dependencies
+
+```bash
+.\.venv\Scripts\activate
+pip install --upgrade -r requirements.txt
+```
+
+Install fs-store cli (see pyproject.toml)
+
+```bash
+poetry install
+```
+
 ## Usage
 
 There are three functions for this file storage server:
