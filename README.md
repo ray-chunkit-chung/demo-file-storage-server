@@ -2,11 +2,15 @@
 
 ## Install fs-store file storage server
 
+
+docker pull python:3.11.2-bullseye
+
+
 Prerequsite: Python 3.11.1 installed in .venv
 
 ```bash
 # Install dependencies
-./.venv/bin/activate   # linux
+source ./.venv/bin/activate   # linux
 pip install --upgrade -r requirements.txt
 
 # Install fs-store cli (See pyproject.toml & file_storage_server/cli.py)
@@ -15,6 +19,10 @@ poetry install
 # Spin up restful backend for local test (See localhost:8000/docs)
 source .env
 python file_storage_server/backend.py
+```
+
+```bash
+python -m pytest tests
 ```
 
 ## Usage of fs-store file storage server
