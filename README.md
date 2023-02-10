@@ -12,15 +12,21 @@ source ./.venv/bin/activate   # linux
 pip install --upgrade -r requirements.txt
 
 # Install fs-store cli (See pyproject.toml & file_storage_server/cli.py)
+poetry lock
 poetry install
 
 # Spin up restful backend for local test (See localhost:8000/docs)
-source .env
+source ./.venv/bin/activate
 python file_storage_server/backend.py
 ```
 
 ```bash
+source ./.venv/bin/activate
 python -m pytest tests
+```
+
+```bash
+fs-store --help
 ```
 
 ## Usage of fs-store file storage server

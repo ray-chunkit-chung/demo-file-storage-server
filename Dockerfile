@@ -7,12 +7,10 @@ COPY . /project
 WORKDIR /project
 
 # Prepare dev env
-RUN python -m venv .venv
-RUN . .venv/bin/activate
-RUN pip install --upgrade -r requirements.txt
-
-# Install frontend cli app
-RUN poetry lock && \
+RUN python -m venv .venv && \
+    . .venv/bin/activate && \
+    pip install --upgrade -r requirements.txt && \
+    poetry lock && \
     poetry install
 
 # Start dev env
