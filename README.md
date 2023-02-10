@@ -20,13 +20,13 @@ Some key considerations required by the challenge are addressed as follows:
 
 - Easy-to-use CLI design: fs-store upload-file <i>filename</i>, fs-store delete-file <i>filename</i>, fs-store list-files
 
-- Maintain the project with standard toolings and ensure reproducible builds using, e.g., docker, etc. See Framework and toolkit information below
+- Maintain the project with standard toolings and ensure reproducible builds using, e.g., docker. See Framework and toolkit information below
 
 - Support simple installation methods for easy software distribution: Method (1) from the docker image, Method (2) from the source. See How to build and run (distribute) the code below
 
 ### General thought process
 
-To create a simple file storage server with a command line interface, I followed these steps:
+To create a simple file storage server with a command line interface, I followed the thought process:
 
 1. Choose a programming language and select the appropriate libraries for file management and command line interface.
 2. Implement a server that listens for client requests and provides basic CRUD (create, read, update, delete) operations for files stored on the server.
@@ -35,14 +35,14 @@ To create a simple file storage server with a command line interface, I followed
 
 From an architectural perspective, the system consists of two parts:
 
-1. Frontend cli app to run cmd: fs-store
+1. Frontend cli app to run cmd of fs-store
 2. Backend app with RESTful endpoints to support curl file upload, delete, and lists
 
 ## How to build and run (distribute) the code
 
 ### Install method 1: from the docker image
 
-Prerequisite: Users' machine can download the docker image and run in -it mode
+Prerequisite: The users' machine can download the docker image and run it in -it mode
 
 Download the image for dev
 
@@ -117,7 +117,6 @@ App folder structure
 
 ```md
 root/
-├── .venv
 ├── .vscode
 ├── file_storage_server
 │   ├── __init__.py
@@ -138,7 +137,7 @@ root/
 └── requirements.txt
 ```
 
-## Os and env setting information
+## OS and env setting information
 
 Install method 1 prerequisite: Users' machine can download the docker image and run in -it mode.
 
@@ -168,8 +167,6 @@ The following websites brought me a lot of insights. I am indebted to the author
 <https://fastapi.tiangolo.com/tutorial/first-steps/>
 
 <https://typer.tiangolo.com/tutorial/first-steps/>
-
-<https://typer.tiangolo.com/tutorial/package/>
 
 <https://pypi.org/project/tornado-file-server/>
 
