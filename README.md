@@ -2,9 +2,7 @@
 
 ## Install fs-store file storage server
 
-
 docker pull python:3.11.2-bullseye
-
 
 Prerequsite: Python 3.11.1 installed in .venv
 
