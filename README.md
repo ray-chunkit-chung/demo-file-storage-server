@@ -67,21 +67,6 @@ Two sets of tests are created:
 
 The tests contain both happy and unhappy path, e.g., when succesful file upload/delete, or when files are not found.
 
-## What to return back to us
-
-The project folder and all its contents
-2. Please provide a complete README file that includes following contents:
-a. What is your idea or Ingenuity in design
-b. Instructions on how to build and run (distribute) your code
-c. framework and tool / kit information if you use
-d. Operating system and environment setting information if necessary
-3. Make sure your code is well covered by test code to illustrate its robustness.
-4. Please zip or tar everything in a directory named yourfirst.lastname/ and return
-via email
-5. In your email response please let us know roughly how many hours you spent on
-this exercise (we will not grade you this on this answer -- it is helpful for us to
-normalize the difficulty of challenges)
-
 ## Thought process
 
 To create a simple file storage server with a command line interface, you could follow these steps:
