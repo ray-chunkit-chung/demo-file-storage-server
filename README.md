@@ -1,5 +1,8 @@
 # File storage server
 
+An implementation of a file server with cli frontend and fastapi backend to support upload-file, delete-file, and list-files.
+
+
 ## Install fs-store file storage server
 
 docker pull python:3.11.2-bullseye
